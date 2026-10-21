@@ -41,3 +41,34 @@ function convert() {
 //
 // D · Snyrta: Námundaðu í einn aukastaf með toFixed(1)
 //     og gefðu síðunni smá CSS.
+
+
+function convert() {
+  console.log("convert keyrir");
+
+  const texti = document.getElementById("celsius").value;
+
+  if (texti === "") {
+    document.getElementById("output").textContent = "Sláðu inn hitastig!";
+    return;
+  }
+
+  const celsius = Number(texti);
+
+  const fahrenheit = celsius * 1.8 + 32;
+
+  let skilabod;
+
+  if (celsius < 0) {
+    skilabod = "Frost! Húfa og vettlingar";
+  } else if (celsius <= 10) {
+    skilabod = "Kalt, úlpuveður";
+  } else if (celsius <= 20) {
+    skilabod = "Fínt veður, taktu peysu";
+  } else {
+    skilabod = "Stuttbuxnaveður!";
+  }
+
+  document.getElementById("output").textContent =
+    `${celsius}°C = ${fahrenheit.toFixed(1)}°F - ${skilabod}`;
+}
